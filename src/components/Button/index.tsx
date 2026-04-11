@@ -1,16 +1,16 @@
 interface ButtonProps {
     children: React.ReactNode;
-    variant?: "primary" | "secundary";
+    variant?: "primary" | "secondary";
     size?: "sm" | "md" | "lg"
 }
 
 export const Button = ({ children, variant = "primary", size = "md" }: ButtonProps) => {
 
     const buttonStyles = {
-        base: "flex justfy-center items-center gap-2 text-nowrap leading-none hover:cursor-pointer transition-colors duration-200 transition rounded-full py-2.5 ",
+        base: "flex justify-center items-center gap-2 text-nowrap leading-none hover:cursor-pointer transition-colors duration-200 rounded-full py-2.5 ",
         variant: {
             primary: "bg-white text-[#6329A2] hover:bg-gray-100",
-            secundary: "bg-transparent border boder-white text-white hover:bg-white hover:text-black",
+            secondary: "bg-transparent border border-white text-white hover:bg-white hover:text-black",
         },
 
         size: {

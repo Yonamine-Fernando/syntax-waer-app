@@ -13,7 +13,7 @@ export const Hero = () => {
                         <h1 className="text-2xl leading-9 tracking-widest mb-10">Transforme qualquer passo em presença</h1>
 
                         <div className="flex gap-3.5 ">
-                            <Button variant="secundary" size="sm">Ver modelos</Button>
+                            <Button variant="secondary" size="sm">Ver modelos</Button>
                             <Button variant="primary" >Comprar</Button>
                         </div>
                     </div>
