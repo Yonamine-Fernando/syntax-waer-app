@@ -52,6 +52,7 @@
 
 body {
   font-family: var(--font-display);
+  color: #FFFFFFFF
 }
 
 /* Esconde o scrollar no Chrome, Safari e Edge */

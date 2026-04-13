@@ -10,10 +10,10 @@ import { Overlay } from "../Overlay";
 
 export const Gallery = () => {
     return (
-        <section className="container max-h-227.5 grid grid-cols-1 gap-2.5 md:grid-cols-2 md:gap-7 ">
-            <div className="grid grid-rows-[2fr_1fr]  gap-2.5 md:gap-7  max-h-207.5 overflow-hidden ">
+        <section className="container md:max-h-227.5 grid grid-cols-1 gap-2.5 md:grid-cols-2 md:gap-7 ">
+            <div className="grid grid-rows-[2fr_1fr]  gap-2.5 md:gap-7  md:max-h-207.5 overflow-hidden ">
                 <div className="relative">
-                    <div className="rounded-2xl overflow-hidden">
+                    <div className="rounded-2xl h-full overflow-hidden">
                         <img className="w-full h-full object-cover" src={cardImagem} alt="Imagem card" />
                     </div>
 

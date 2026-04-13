@@ -4,8 +4,12 @@ import tenisModerno from "@/assets/images/tenis-colorido.jpg";
 import tenisFuturista from "@/assets/images/tenis-futurista.jpg";
 import { Button } from "../Button";
 
+interface Categorie {
+    name: string
+    image: string
+}
 
-const categories = [
+const categories: Categorie[] = [
     { name: "Casual", image: tenisBranco },
     { name: "Esporte", image: tenisCinza },
     { name: "Moderno", image: tenisModerno },
