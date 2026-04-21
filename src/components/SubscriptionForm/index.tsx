@@ -7,7 +7,7 @@ export const SubscritionForm = () => {
                 id="newsletter"
                 name="newsletter"
                 placeholder="email@email.com"
-                className="rounded-[30px] bg-white py-3 px-5 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-gray-300"
+                className="rounded-[30px] text-gray-500 bg-white py-3 px-5 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-gray-300"
             />
         </form>
     );
