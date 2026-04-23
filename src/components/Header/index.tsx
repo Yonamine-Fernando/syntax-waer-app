@@ -1,14 +1,17 @@
 import Logo from "@/assets/images/logo.png";
-import IconUser from "@/assets/images/ícone-user.png";
 import IconAbout from "@/assets/images/ícone-about.png";
 import IconCart from "@/assets/images/ícone-cart.png";
+import IconUser from "@/assets/images/ícone-user.png";
+import { Link } from "@tanstack/react-router";
 
 export const Header = () => {
   return (
     <div className="relative">
       <header className="fixed top-10 left-0 right-0 z-10 mx-10">
         <div className="bg-white text-black max-w-330 mx-auto flex justify-between items-center py-3 px-7 rounded-2xl mt-5 shadow-2xs">
-          <img className="w-32 md:w-36" src={Logo} alt="Logo SyntaxWaer" />
+          <Link to="/">
+            <img className="w-32 md:w-36" src={Logo} alt="Logo SyntaxWaer" />
+          </Link>
 
           <nav className="hidden md:block">
             <ul className="flex gap-10">

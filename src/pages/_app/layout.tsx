@@ -1,17 +1,17 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
-import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
 
 export const Route = createFileRoute("/_app")({
-    component: AppLayout
+  component: AppLayout,
 });
 
 function AppLayout() {
-    return (
-        <div>
-            <Header />
-            <Outlet />
-            <Footer />
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
 }
