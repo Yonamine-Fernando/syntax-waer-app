@@ -1,4 +1,5 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { BagProvider } from "./contexts/BagPrivider";
 import { routeTree } from "./router-tree-gen";
 
 const router = createRouter({ routeTree });
@@ -10,7 +11,11 @@ declare module "@tanstack/react-router" {
 }
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <BagProvider>
+      <RouterProvider router={router} />;
+    </BagProvider>
+  );
 }
 
 export default App;

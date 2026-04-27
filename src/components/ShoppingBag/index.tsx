@@ -1,33 +1,18 @@
-import MensCruiserMidExplore from "@/assets/images/cruiser-mid-explore-rustic-green.webp";
-import MensCruiser from "@/assets/images/cruiser_blizzard_blizzard.webp";
-import MensStriderExplore from "@/assets/images/strider-explore-rustic-green.webp";
-import MensTreeDasher from "@/assets/images/tree-dasher-2-natural-black-boyal-blue.webp";
-import MensTreeRunnerNz from "@/assets/images/tree-runner-nz-weathered-brown.webp";
-
-import IconCart from "@/assets/images/ícone-cart.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { MdOutlineShoppingBag } from "react-icons/md";
 import { formatCurrency } from "../../helpers/currency-format";
+import { BagContext } from "../../contexts/BagContext";
 
-const productsInCart = [
-  { id: 1, name: "produto 1", image: MensTreeDasher, price: 35, quantity: 5 },
-  { id: 2, name: "produto 2", image: MensCruiserMidExplore, price: 55, quantity: 2 },
-  { id: 3, name: "produto 3", image: MensCruiser, price: 125, quantity: 4 },
-  { id: 4, name: "produto 4", image: MensTreeRunnerNz, price: 65, quantity: 2 },
-  { id: 5, name: "produto 5", image: MensStriderExplore, price: 85, quantity: 1 },
-  { id: 1, name: "produto 1", image: MensTreeDasher, price: 35, quantity: 5 },
-  { id: 2, name: "produto 2", image: MensCruiserMidExplore, price: 55, quantity: 2 },
-  { id: 3, name: "produto 3", image: MensCruiser, price: 125, quantity: 4 },
-  { id: 4, name: "produto 4", image: MensTreeRunnerNz, price: 65, quantity: 2 },
-  { id: 5, name: "produto 5", image: MensStriderExplore, price: 85, quantity: 1 },
-];
-
-export const Shoppingcart = () => {
+export const ShoppingBag = () => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
+  const { bag, remove, increment, decrement } = useContext(BagContext);
+
+  console.log("item no na sacola:", bag);
 
   return (
     <>
       <button className="cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>
-        <img src={IconCart} alt="Icone da lista de compras" />
+        <MdOutlineShoppingBag className="text-2xl text-[#9856EF]" />
       </button>
 
       <div
@@ -39,15 +24,17 @@ export const Shoppingcart = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <header className="flex items-center justify-between px-5 ">
-            <p className="text-2xl font-bold">Sacola ({productsInCart.length})</p>
+            <p className="text-2xl font-bold">Sacola ({bag.length})</p>
             <button className="text-xl font-bold cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>
               X
             </button>
           </header>
           <ul className=" p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3">
-            {productsInCart.map((product) => (
+            {bag.map((product) => (
               <li className="flex flex-col gap-1 px-6 " key={product.id}>
-                <button className="self-end text-xs cursor-pointer">X</button>
+                <button className="self-end text-xs cursor-pointer" onClick={() => remove(product.id)}>
+                  X
+                </button>
 
                 <div className="flex gap-4">
                   <img className="w-16 h-16" src={product.image} alt={product.name} />
@@ -58,9 +45,13 @@ export const Shoppingcart = () => {
                       <span className="">{formatCurrency(product.price)}</span> à vista
                     </p>
                     <div className="border flex gap-6 px-3 py-1">
-                      <button className="cursor-pointer">-</button>
+                      <button className="cursor-pointer" onClick={() => decrement(product)}>
+                        -
+                      </button>
                       <p>{product.quantity}</p>
-                      <button className="cursor-pointer">+</button>
+                      <button className="cursor-pointer" onClick={() => increment(product)}>
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -1,8 +1,8 @@
 import Logo from "@/assets/images/logo.png";
-import IconAbout from "@/assets/images/ícone-about.png";
-import IconUser from "@/assets/images/ícone-user.png";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "@tanstack/react-router";
-import { Shoppingcart } from "../ShoppingCart";
+import { ShoppingBag } from "../ShoppingBag";
 
 export const Header = () => {
   return (
@@ -37,16 +37,16 @@ export const Header = () => {
               </li>
               <li>
                 <a href="#">
-                  <img src={IconUser} alt="Ícone de login" />
+                  <IoPersonOutline className="text-2xl text-[#9856EF]" />
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <img src={IconAbout} alt="Ícone sobre" />
+                  <AiOutlineQuestionCircle className="text-2xl text-[#9856EF]" />
                 </a>
               </li>
               <li>
-                <Shoppingcart />
+                <ShoppingBag />
               </li>
             </ul>
           </nav>

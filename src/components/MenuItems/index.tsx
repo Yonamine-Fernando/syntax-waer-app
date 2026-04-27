@@ -14,7 +14,7 @@ export const MenuItems = () => {
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-5 sm:gap-2 mb-5 ">
       {menus.map(({ title, items }: MenusProps) => (
-        <nav>
+        <nav key={title}>
           <ul className="flex flex-col gap-4">
             <li>
               <p>{title}</p>
