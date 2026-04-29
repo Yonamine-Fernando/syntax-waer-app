@@ -1,5 +1,5 @@
 import MensCruiserMidExplore from "@/assets/images/cruiser-mid-explore-rustic-green.webp";
-import MensCruiser from "@/assets/images/cruiser_blizzard_blizzard.webp";
+import MensCruiser from "@/assets/images/cruiser-blizzard-blizzard.webp";
 import MensStriderExplore from "@/assets/images/strider-explore-rustic-green.webp";
 import MensTreeDasher from "@/assets/images/tree-dasher-2-natural-black-boyal-blue.webp";
 import MensTreeRunnerNz from "@/assets/images/tree-runner-nz-weathered-brown.webp";
