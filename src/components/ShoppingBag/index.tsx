@@ -11,8 +11,13 @@ export const ShoppingBag = () => {
 
   return (
     <>
-      <button className="cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>
+      <button className="cursor-pointer relative" onClick={() => setCartIsOpen(!cartIsOpen)}>
         <MdOutlineShoppingBag className="text-2xl text-[#9856EF]" />
+        {bag.length > 0 && (
+          <span className="absolute -right-2 -top-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+            {bag.length}
+          </span>
+        )}
       </button>
 
       <div

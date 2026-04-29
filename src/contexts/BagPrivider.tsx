@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Product } from "../interfaces/products";
 import { BagContext } from "./BagContext";
 
@@ -10,8 +10,22 @@ export interface ProductBag extends Product {
   quantity: number;
 }
 
+const localStorageKey = "@SyntaxWear:cart";
+
 export const BagProvider = ({ children }: BagProviderProps) => {
-  const [bag, setBag] = useState<ProductBag[]>([]);
+  const [bag, setBag] = useState<ProductBag[]>(() => {
+    try {
+      const bagFormLocalStorage = localStorage.getItem(localStorageKey);
+      return bagFormLocalStorage ? JSON.parse(bagFormLocalStorage) : [];
+    } catch (error) {
+      console.error("Erro ao ler a sacola", error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, JSON.stringify(bag));
+  }, [bag]);
 
   function add(product: Product): void {
     const productExistsIntoBag = bag.find((itemInBag) => itemInBag.id === product.id);
@@ -34,18 +48,18 @@ export const BagProvider = ({ children }: BagProviderProps) => {
   }
 
   function increment(product: ProductBag): void {
-    updateProductQuantinty(product, product.quantity + 1);
+    updateProductQuantity(product, product.quantity + 1);
   }
 
   function decrement(product: ProductBag): void {
-    updateProductQuantinty(product, product.quantity - 1);
+    updateProductQuantity(product, product.quantity - 1);
   }
 
-  function updateProductQuantinty(product: ProductBag, newQuantity: number): void {
+  function updateProductQuantity(product: ProductBag, newQuantity: number): void {
     if (newQuantity <= 0) return;
-    const productExistInBag = bag.find((itemInBag) => itemInBag.id === product.id);
+    const productExistsInBag = bag.find((itemInBag) => itemInBag.id === product.id);
 
-    if (!productExistInBag) return;
+    if (!productExistsInBag) return;
 
     const newBag = bag.map((itemInBag) =>
       itemInBag.id === product.id ? { ...itemInBag, quantity: newQuantity } : itemInBag,
