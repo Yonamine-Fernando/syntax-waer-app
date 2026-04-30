@@ -7,8 +7,6 @@ export const ShoppingBag = () => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
   const { bag, remove, increment, decrement } = useContext(BagContext);
 
-  console.log("item no na sacola:", bag);
-
   return (
     <>
       <button className="cursor-pointer relative" onClick={() => setCartIsOpen(!cartIsOpen)}>
@@ -25,7 +23,7 @@ export const ShoppingBag = () => {
         onClick={() => setCartIsOpen(!cartIsOpen)}
       >
         <div
-          className={`${cartIsOpen ? "translate-x" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-75 md:w-[30%]`}
+          className={`${cartIsOpen ? "translate-x" : "translate-x-full"} absolute top-0 right-0 bottom-0 bg-white pt-6 transition-all duration-500 ease-in-out w-[60%] md:w-[40%]`}
           onClick={(e) => e.stopPropagation()}
         >
           <header className="flex items-center justify-between px-5 ">

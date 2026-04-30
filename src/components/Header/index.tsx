@@ -3,6 +3,18 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "@tanstack/react-router";
 import { ShoppingBag } from "../ShoppingBag";
+import { MenuMobile } from "../MenuMobile";
+
+export interface NavLinks {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLinks[] = [
+  { name: "Masculino", href: "/products" },
+  { name: "Feminino", href: "/products" },
+  { name: "Outlet", href: "/products" },
+];
 
 export const Header = () => {
   return (
@@ -13,37 +25,35 @@ export const Header = () => {
             <img className="w-32 md:w-36" src={Logo} alt="Logo SyntaxWaer" />
           </Link>
 
-          <nav className="hidden md:block">
+          <nav className="hidden lg:block">
             <ul className="flex gap-10">
-              <li>
-                <a href="#">Masculino</a>
-              </li>
-              <li>
-                <a href="#">Feminino</a>
-              </li>
-              <li>
-                <a href="#">Outlet</a>
-              </li>
+              {navLinks.map((link) => (
+                <li className="hover:underline" key={link.name}>
+                  <Link to={link.href} key={link.name}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
           <nav>
             <ul className="flex gap-4 md:gap-10">
-              <li className="hidden md:block">
+              <li className="hidden lg:block hover:underline">
                 <Link to="/our-stores">Nossas Lojas</Link>
               </li>
-              <li className="hidden md:block">
-                <Link to="/about">Sobre</Link>
+              <li className="lg:hidden">
+                <MenuMobile navLinks={navLinks} />
               </li>
-              <li>
+              <li className="hidden lg:block">
                 <a href="#">
                   <IoPersonOutline className="text-2xl text-[#9856EF]" />
                 </a>
               </li>
-              <li>
-                <a href="#">
+              <li className="hidden lg:block">
+                <Link to="/about">
                   <AiOutlineQuestionCircle className="text-2xl text-[#9856EF]" />
-                </a>
+                </Link>
               </li>
               <li>
                 <ShoppingBag />
