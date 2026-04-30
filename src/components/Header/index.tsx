@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div className="relative">
       <header className="fixed top-10 left-0 right-0 z-10 mx-10">
-        <div className="bg-white/96  text-black max-w-330 mx-auto flex justify-between items-center py-3 px-7 rounded-2xl mt-5 shadow-2xs">
+        <div className="bg-white/96  text-black max-w-330 mx-auto flex justify-between items-center py-3 px-7 rounded-2xl md:mt-5 shadow-2xs">
           <Link to="/">
             <img className="w-32 md:w-36" src={Logo} alt="Logo SyntaxWaer" />
           </Link>
@@ -33,7 +33,7 @@ export const Header = () => {
                 <Link to="/our-stores">Nossas Lojas</Link>
               </li>
               <li className="hidden md:block">
-                <a href="#">Sobre</a>
+                <Link to="/about">Sobre</Link>
               </li>
               <li>
                 <a href="#">

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/_app/our-stores/")({
 
 function RouteComponent() {
   return (
-    <section className="container py-10">
+    <section className="container py-5 md:py-10">
       <img
         className="h-80 md:h-125 rounded-[20px] object-cover w-full"
         src={OurStoresBanner}
@@ -23,7 +23,7 @@ function RouteComponent() {
         </h1>
 
         <section className="text-black w-full space-y-20">
-          <div className="flex flex-co`l md:flex-row items-center gap-2.5">
+          <div className="flex flex-col md:flex-row items-center gap-2.5">
             <div className="text-center p-6">
               <h2 className="text-3xl mb-5">Novidade ao vivo</h2>
               <p>

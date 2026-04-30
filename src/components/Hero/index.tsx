@@ -5,7 +5,7 @@ import { Overlay } from "../Overlay";
 export const Hero = () => {
   return (
     <div className="container ">
-      <section className="relative h-125 rounded-[20px] mb-10">
+      <section className="relative h-125 rounded-[20px] md-5 md:mb-10">
         <img src={Banner} alt="Banner principal SyntaxWear" className="w-full h-full object-cover rounded-[20px]" />
         <Overlay
           title="Kriton One"

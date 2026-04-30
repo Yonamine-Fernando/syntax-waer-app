@@ -18,7 +18,7 @@ const categories: Categorie[] = [
 
 export const Categories = () => {
   return (
-    <section className="container flex gap-3 lg:grid lg:grid-cols-4 lg:gap-4 mb-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+    <section className="container flex gap-3 lg:grid lg:grid-cols-4 lg:gap-4 mb-5 md:mb-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
       {categories.map((category) => (
         <div
           key={category.name}
