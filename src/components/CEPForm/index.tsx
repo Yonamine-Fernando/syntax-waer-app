@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { formatCurrency } from "../../helpers/currency-format";
-import type { Address } from "../../interfaces/iadress";
+import type { Address } from "../../interfaces/andress";
 import { cepSchema, type CepFormData } from "./cep.schema";
 
 const SHIPPING_BY_REGION: Record<string, number> = {

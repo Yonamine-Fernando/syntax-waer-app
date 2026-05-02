@@ -6,8 +6,11 @@ import galeriaTenisColorido from "@/assets/images/galeria-tenis-colorido.jpg";
 import galeriaTenisRoxo from "@/assets/images/galeria-tenis-roxo.jpg";
 import { Button } from "../Button";
 import { Overlay } from "../Overlay";
+import { useRouter } from "@tanstack/react-router";
 
 export const Gallery = () => {
+  const router = useRouter();
+
   return (
     <section className="container md:max-h-227.5 grid grid-cols-1 gap-2.5 md:grid-cols-2 md:gap-7 ">
       <div className="grid grid-rows-[2fr_1fr]  gap-2.5 md:gap-7  md:max-h-207.5 overflow-hidden ">
@@ -21,8 +24,28 @@ export const Gallery = () => {
             subtitle="Estilo urbando com atitude"
             className="inset-0 p-6 flex flex-col justify-center text-white text-center"
           >
-            <Button variant="secondary">Feminino</Button>
-            <Button variant="secondary">Masculino</Button>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                router.navigate({
+                  to: "/products/category/$category",
+                  params: { category: "feminino" },
+                })
+              }
+            >
+              Feminino
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                router.navigate({
+                  to: "/products/category/$category",
+                  params: { category: "masculino" },
+                })
+              }
+            >
+              Masculino
+            </Button>
           </Overlay>
         </div>
         <div className="rounded-2xl h-full w-full overflow-hidden ">

@@ -1,15 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { products } from "../../../components/mocks/products";
-import { formatCurrency } from "../../../helpers/currency-format";
 import { useContext } from "react";
-import { BagContext } from "../../../contexts/BagContext";
 import { CEPForm } from "../../../components/CEPForm";
+import { products } from "../../../components/mocks/products";
+import { BagContext } from "../../../contexts/BagContext";
+import { formatCurrency } from "../../../helpers/currency-format";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   parseParams: (params) => ({
     productId: Number(params.productId),
   }),
   component: RouteComponent,
+  head: ({ params }) => {
+    const filterProduct = products.find((product) => product.id === Number(params.productId));
+
+    const title = filterProduct
+      ? `${filterProduct.name}- produtos - SyntaxWear`
+      : "Produto não encontrado - Produtos -SyntaxeWear";
+
+    return { meta: [{ title: title }] };
+  },
 });
 
 function RouteComponent() {
@@ -19,9 +28,18 @@ function RouteComponent() {
 
   const filteredProduct = products.find((product) => product.id === productId);
 
-  if (!filteredProduct) return;
+  if (!filteredProduct)
+    return (
+      <section className="container flex flex-col min-h-[73vh] justify-center text-center text-black mb-10 pt-40 md:pt-50 pb-10 md:px-10 ">
+        <h1 className="text-3xl font-bold mb-4">Produto não encontrado</h1>
+        <p className="mb-6">O produto que você stá procurando não existe ou esgotou.</p>
+        <Link className="text-accent hover:text-accent-hover underline" to="/products">
+          Voltar para lista de produtos
+        </Link>
+      </section>
+    );
 
-  const originalPrice = filteredProduct?.price ?? 0;
+  const originalPrice = filteredProduct.price ?? 0;
   const discontPrice = originalPrice * 0.9;
   const inInstallments = originalPrice / 6;
 
