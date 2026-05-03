@@ -59,15 +59,15 @@ export const CEPForm = () => {
       <form className="flex gap-3" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
           <input
-            className={`border border-[#c0c0c0] rounded-md p-3 transition-colors ${
-              errors.cep ? "border-red-500" : "focus:border-black"
+            className={`border border-border rounded-md p-3 transition-colors ${
+              errors.cep ? "border-error" : "focus:border-black"
             }`}
             type="text"
             placeholder="00000-000"
             {...register("cep")}
             maxLength={9}
           />
-          {errors.cep && <span className="text-red-500 text-sm mt-1">{errors.cep.message}</span>}
+          {errors.cep && <span className="text-error text-sm mt-1">{errors.cep.message}</span>}
         </div>
         <button
           type="submit"

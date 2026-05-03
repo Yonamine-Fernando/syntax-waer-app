@@ -25,7 +25,7 @@ function RouteComponent() {
           e sinta o conforto da SyntaxWear pessoalmente.
         </h1>
 
-        <section className="text-black w-full space-y-20">
+        <section className="text-text w-full space-y-20">
           <div className="flex flex-col md:flex-row items-center gap-2.5">
             <div className="text-center p-6">
               <h2 className="text-3xl mb-5">Novidade ao vivo</h2>

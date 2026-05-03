@@ -13,17 +13,17 @@ export const Route = createFileRoute("/_auth/sign-in")({
 
 function RouteComponent() {
   return (
-    <section className="flex justify-center  items-center  text-black bg-[#f5f5f5] w-full h-screen">
-      <div className=" flex flex-col gap-3 w-112.5 bg-white rounded-[18px] p-10 shadow-md">
+    <section className="flex justify-center  items-center  text-text bg-surface w-full h-screen">
+      <div className=" flex flex-col gap-3 w-112.5 bg-background rounded-[18px] p-10 shadow-md">
         <Logo />
-        <h2 className="text-black font-bold text-[21px] mb-2">Entrar</h2>
+        <h2 className="text-text font-bold text-[21px] mb-2">Entrar</h2>
         <p>Escolha como voce gostaria de fazer o login</p>
         <ButtonGoogle action="signIn" />
         <Separator />
         <LoginForm />
         <p>
           Ainda não possui uma conta?{" "}
-          <Link className="ml-1 text-[#5433EB] hover:underline" to="/sign-up">
+          <Link className="ml-1 text-accent hover:underline" to="/sign-up">
             Cadastre-se
           </Link>{" "}
         </p>

@@ -2,8 +2,10 @@ import Logo from "@/assets/images/logo.png";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link } from "@tanstack/react-router";
-import { ShoppingBag } from "../ShoppingBag";
 import { MenuMobile } from "../MenuMobile";
+import { BagButton } from "../BagButton";
+import { BagDrawer } from "../BagDrawer";
+import { useState } from "react";
 
 export interface NavLinks {
   name: string;
@@ -17,6 +19,8 @@ const navLinks: NavLinks[] = [
 ];
 
 export const Header = () => {
+  const [bagIsOpen, setBagIsOpen] = useState<boolean>(false);
+
   return (
     <div className="relative">
       <header className="fixed top-10 left-0 right-0 z-10 mx-10">
@@ -56,12 +60,14 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <ShoppingBag />
+                <BagButton onClick={() => setBagIsOpen(true)} />
               </li>
             </ul>
           </nav>
         </div>
       </header>
+
+      <BagDrawer isOpen={bagIsOpen} onClose={() => setBagIsOpen(false)} />
     </div>
   );
 };
