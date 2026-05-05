@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ButtonGoogle } from "../../components/ButtonGoggle";
+import { ButtonGoogle } from "../../components/ButtonGoogle";
 import { LoginForm } from "../../components/LoginForm";
 import { Logo } from "../../components/Logo";
 import { Separator } from "../../components/Separator";
@@ -17,7 +17,7 @@ function RouteComponent() {
       <div className=" flex flex-col gap-3 w-112.5 bg-background rounded-[18px] p-10 shadow-md">
         <Logo />
         <h2 className="text-text font-bold text-[21px] mb-2">Entrar</h2>
-        <p>Escolha como voce gostaria de fazer o login</p>
+        <p>Escolha como você gostaria de fazer o login</p>
         <ButtonGoogle action="signIn" />
         <Separator />
         <LoginForm />

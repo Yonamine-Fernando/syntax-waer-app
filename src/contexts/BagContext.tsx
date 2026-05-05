@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import type { ProductBag } from "./BagPrivider";
 import type { Product } from "../interfaces/products";
+import type { ProductBag } from "./BagProvider";
 
 interface BagContextType {
   bag: ProductBag[];

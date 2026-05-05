@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# 🛍️ SyntaxWear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BA5?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
-Currently, two official plugins are available:
+A **SyntaxWear** é um e-commerce de moda moderno, rápido e responsivo, focado em proporcionar a melhor experiência de usuário (UX) e performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> **⚠️ Aviso Legal:** Esta é uma loja fictícia. O projeto foi desenvolvido exclusivamente para fins de estudo e composição de portfólio.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Contexto do Projeto e Mentoria
 
-## Expanding the ESLint configuration
+O escopo principal desta aplicação foi desenvolvido acompanhando as bases de um curso de Front-end. No entanto, tomei a iniciativa de ir além do que foi ensinado e adicionei funcionalidades totalmente novas e exclusivas que não existiam no projeto original, como:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- O componente de autenticação **`ButtonGoogle`**.
+- A **validação de restrição de idade (+18 anos)** integrada aos formulários.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Além disso, utilizei a inteligência artificial do **Google Gemini** como um "Mentor Virtual" para debater decisões arquiteturais e refatorar o código focando em padrões de mercado (Nível Sênior). Dentre as principais melhorias implementadas, destacam-se:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Performance no Estado Global:** Refatoração do carrinho de compras (`BagProvider`) utilizando _Lazy Initialization_ no State para leitura do LocalStorage, eliminando problemas de renderização em cascata (_Cascading Renders_).
+- **Roteamento Tipado e Seguro:** Implementação do método estrito `parseParams` no **TanStack Router** para garantir a conversão e tipagem correta de parâmetros da URL antes da renderização dos componentes.
+- **Clean Code e Boas Práticas:** Uso extensivo de Cláusulas de Guarda (_Guard Clauses_), imutabilidade de estados e tratamento seguro de erros em requisições de API externa.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Funcionalidades
+
+- 🛒 **Carrinho de Compras Global:** Gerenciamento de estado otimizado persistido no LocalStorage.
+- 🚚 **Cálculo de Frete Dinâmico:** Consumo da API do ViaCEP para preenchimento de endereço e cálculo de taxas por região.
+- 🔐 **Login Seguro e Validação:** Integração de botões sociais (Google) e validação de regras de negócio (maioridade) via Zod.
+- ⚡ **Navegação SPA Instantânea:** Roteamento de páginas ultrarrápido sem recarregamento do navegador.
+- 📱 **Design Responsivo:** Layout adaptável para dispositivos móveis, tablets e desktops.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **React.js** (com Vite)
+- **TypeScript** (Tipagem rigorosa e Interfaces)
+- **Tailwind CSS** (Estilização via utilitários)
+- **TanStack Router** (Roteamento moderno e 100% tipado)
+- **React Hook Form + Zod** (Gerenciamento e validação de formulários)
+- **Context API** (Gerenciamento de estados globais)
+
+---
+
+## 🚀 Como rodar o projeto localmente
+
+Siga os passos abaixo para testar o Front-end na sua máquina:
+
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/Yonamine-Fernando/syntax-wear-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2.Acesse a pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Bash
+cd syntax-wear-app
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3.Instale as dependências:
+
+Bash
+npm install
+
+4.Inicie o servidor de desenvolvimento:
+
+Bash
+npm run dev
+
+---
+
+🌐 Deploy
+O Front-end da aplicação está hospedado na Vercel e pode ser acessado através do link abaixo:
+
+🔗 https://syntax-waer-app.vercel.app/
+
+---
+
+🗺️ Roadmap / Próximos Passos
+Atualmente, o Front-end já está 100% estruturado, validado e com deploy ativo utilizando dados mockados e LocalStorage para simulação da experiência de compra.
+
+A próxima fase deste projeto (em desenvolvimento) é a construção de uma API própria no Back-end (Node.js/Express e Banco de Dados) para substituir o armazenamento local, integrar autenticação real e gerenciar os pedidos e o estoque de forma dinâmica.

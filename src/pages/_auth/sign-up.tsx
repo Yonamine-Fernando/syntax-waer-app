@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ButtonGoogle } from "../../components/ButtonGoggle";
+import { ButtonGoogle } from "../../components/ButtonGoogle";
 import { Logo } from "../../components/Logo";
 import { RegisterForm } from "../../components/RegisterForm";
 import { Separator } from "../../components/Separator";

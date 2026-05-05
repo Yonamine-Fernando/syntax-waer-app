@@ -32,7 +32,7 @@ function RouteComponent() {
     return (
       <section className="container flex flex-col min-h-[73vh] justify-center text-center text-black mb-10 pt-40 md:pt-50 pb-10 md:px-10 ">
         <h1 className="text-3xl font-bold mb-4">Produto não encontrado</h1>
-        <p className="mb-6">O produto que você stá procurando não existe ou esgotou.</p>
+        <p className="mb-6">O produto que você está procurando não existe ou esgotou.</p>
         <Link className="text-accent hover:text-accent-hover underline" to="/products">
           Voltar para lista de produtos
         </Link>
@@ -70,7 +70,7 @@ function RouteComponent() {
           <p className="max-w-125 my-5">{filteredProduct?.description}</p>
 
           <div className="mb-3">
-            <p>Clacular o prazo de entrega</p>
+            <p>Calcular o prazo de entrega</p>
             <CEPForm />
           </div>
 

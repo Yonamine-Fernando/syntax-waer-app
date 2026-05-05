@@ -1,5 +1,5 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { BagProvider } from "./contexts/BagPrivider";
+import { BagProvider } from "./contexts/BagProvider";
 import { routeTree } from "./router-tree-gen";
 
 const router = createRouter({ routeTree });

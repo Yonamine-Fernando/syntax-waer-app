@@ -87,7 +87,7 @@ export const RegisterForm = () => {
 
         <div>
           <label htmlFor="confirmPassword" className="text-xs text-gray-600">
-            Confirma senha*
+            Confirmar senha*
           </label>
           <input
             id="confirmPassword"
