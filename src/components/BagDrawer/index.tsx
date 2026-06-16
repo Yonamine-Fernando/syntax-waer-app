@@ -33,7 +33,7 @@ export const BagDrawer = ({ isOpen, onClose }: BagDrawerProps) => {
               </button>
 
               <div className="flex gap-4">
-                <img className="w-16 h-16" src={product.image} alt={product.name} />
+                <img className="w-16 h-16" src={product.imageUrl} alt={product.name} />
                 <div className="flex flex-col items-start">
                   <p className="mb-1 text-sm">{product.name}</p>
                   <p className="mb-1 text-sm">Quantidade: {product.quantity}</p>
