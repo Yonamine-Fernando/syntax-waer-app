@@ -43,7 +43,7 @@ export const BagProvider = ({ children }: BagProviderProps) => {
     setBag(newBag);
   }
 
-  function remove(productId: number): void {
+  function remove(productId: string): void {
     setBag(bag.filter((itemInCart) => itemInCart.id !== productId));
   }
 

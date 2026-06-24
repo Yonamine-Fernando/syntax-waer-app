@@ -35,3 +35,22 @@ export async function getProducts({ page, limit = DEAULT_LIMIT }: GetProductsPar
     throw new Error("Erro desconecido ao buscar produtos.");
   }
 }
+
+export async function getProductByCategotyId(
+  categoryId: string,
+  paginationParams?: GetProductsParams,
+): Promise<ProductResponse> {
+  const params = new URLSearchParams({
+    page: paginationParams?.page.toString() || "1",
+    limit: (paginationParams?.limit || DEAULT_LIMIT).toString(),
+    categoryId: categoryId.toString(),
+  });
+
+  const response = await fetch(`${API_BASE_URL}/products?${params.toString()}`);
+
+  if (!response.ok) {
+    throw new Error(`Erro ao buscar produtos por categoria: ${response.statusText}`);
+  }
+
+  return await response.json();
+}

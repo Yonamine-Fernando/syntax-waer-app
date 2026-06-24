@@ -7,11 +7,11 @@ import { formatCurrency } from "../../../helpers/currency-format";
 
 export const Route = createFileRoute("/_app/products/$productId")({
   parseParams: (params) => ({
-    productId: Number(params.productId),
+    productId: String(params.productId),
   }),
   component: RouteComponent,
   head: ({ params }) => {
-    const filterProduct = products.find((product) => product.id === Number(params.productId));
+    const filterProduct = products.find((product) => String(product.id) === String(params.productId));
 
     const title = filterProduct
       ? `${filterProduct.name}- produtos - SyntaxWear`
@@ -26,7 +26,7 @@ function RouteComponent() {
 
   const { productId } = Route.useParams();
 
-  const filteredProduct = products.find((product) => product.id === productId);
+  const filteredProduct = products.find((product) => String(product.id) === String(productId));
 
   if (!filteredProduct)
     return (
@@ -53,7 +53,7 @@ function RouteComponent() {
         <span className="font-semibold">{filteredProduct?.name}</span>
       </nav>
       <div className="flex justify-center gap-10 ">
-        <img className="w-125 bg-white rounded-2xl " src={filteredProduct?.image} alt={filteredProduct?.name} />
+        <img className="w-125 bg-white rounded-2xl " src={filteredProduct?.imageUrl} alt={filteredProduct?.name} />
         <div className="text-black">
           <h1 className="text-4xl font-bold mb-1">{filteredProduct?.name}</h1>
           <p className="mb-2">cor: {filteredProduct?.color}</p>

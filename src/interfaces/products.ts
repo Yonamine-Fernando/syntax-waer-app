@@ -1,11 +1,14 @@
 export interface Product {
-  id: number;
+  id: string; // No Prisma é UUID (string), não number!
   name: string;
+  description?: string; // A interrogação indica que é opcional
   price: number;
-  imageUrl: string;
-  color: string;
-  description: string;
+  stock?: number;
+  size?: string[];
+  color?: string;
+  imageUrl?: string;
   categoryId: string;
-  slug: string;
-  stock: number;
+  slug?: string;
+  active: boolean;
+  createdAt: string; //
 }
